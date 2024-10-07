@@ -1,5 +1,6 @@
-package com.sume.ecommerce.order;
+package com.sume.ecommerce.orderline;
 
+import com.sume.ecommerce.order.Order;
 import jakarta.persistence.*;
 import lombok.*;
 
