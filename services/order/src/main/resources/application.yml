@@ -6,6 +6,13 @@ spring:
     name: order-service
   config:
     import: optional:configserver:http://localhost:8888
+  kafka:
+    producer:
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer # serialize key trước khi send to Kafka broker
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer # serialize value trước khi send to Kafka server
+      properties:
+        spring.json.type.mapping: orderConfirmation:com.sume.ecommerce.kafka.OrderConfirmation # sử dụng ánh xạ kiểu spring.json.type.mapping để chuyển đổi JSON thành đối tượng Java OrderConfirmation
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/order
