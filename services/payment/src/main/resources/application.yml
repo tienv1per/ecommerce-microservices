@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: payment-service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/payment
+    username: root
+    password: secret
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  config:
+    import: optional:configserver:http://localhost:8888
+  kafka:
+    producer:
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer # serialize key tr??c khi send to Kafka broker
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer # serialize value tr??c khi send to Kafka server
+      properties:
+        spring.json.type.mapping: paymentConfirmation:com.sume.ecommerce.notification.PaymentNotificationRequest # s? d?ng ánh x? ki?u spring.json.type.mapping ?? chuy?n ??i JSON thành ??i t??ng Java OrderConfirmation
