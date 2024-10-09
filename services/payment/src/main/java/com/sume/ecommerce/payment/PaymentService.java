@@ -25,6 +25,6 @@ public class PaymentService {
                         request.customer().email()
                 )
         );
-        return null;
+        return payment.getId();
     }
 }
