@@ -21,7 +21,7 @@ import static com.sume.ecommerce.notification.NotificationType.PAYMENT_CONFIRMAT
 @Slf4j
 public class NotificationConsumer {
     private final NotificationRepository repository;
-     private final EmailService emailService;
+    private final EmailService emailService;
 
     @KafkaListener(topics = "payment-topic")
     public void consumePaymentSuccessNotification(PaymentConfirmation paymentConfirmation) throws MessagingException {
