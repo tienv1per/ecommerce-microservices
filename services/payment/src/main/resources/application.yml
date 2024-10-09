@@ -11,7 +11,7 @@ spring:
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
-      ddl-auto: validate
+      ddl-auto: update
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
   config:
@@ -22,4 +22,4 @@ spring:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer # serialize key tr??c khi send to Kafka broker
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer # serialize value tr??c khi send to Kafka server
       properties:
-        spring.json.type.mapping: paymentConfirmation:com.sume.ecommerce.notification.PaymentNotificationRequest # s? d?ng ánh x? ki?u spring.json.type.mapping ?? chuy?n ??i JSON thành ??i t??ng Java OrderConfirmation
+        spring.json.type.mapping: paymentConfirmation:com.sume.ecommerce.notification.PaymentNotificationRequest
