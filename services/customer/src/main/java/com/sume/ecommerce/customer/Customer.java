@@ -10,11 +10,16 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Setter
 @Builder
 @Document
-public class Customer {
+public class Customer implements Comparable<Customer> {
     @Id
     private String id;
     private String firstname;
     private String lastname;
     private String email;
     private Address address;
+
+    @Override
+    public int compareTo(Customer o) {
+        return 0;
+    }
 }
